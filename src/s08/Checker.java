@@ -25,10 +25,10 @@ public class Checker extends HttpServlet {
                 set.add(Character.toLowerCase(c));
             }
         }
-        request.setAttribute("set", set);
+        request.setAttribute("set", set);// è una mappa chiave valore
 
         RequestDispatcher rd = request.getRequestDispatcher("/s08/checker.jsp");
-        rd.forward(request, response);
+        rd.forward(request, response);//passa tutto quanto alla jsp che è indicata sopra
     }
 
     @Override

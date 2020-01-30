@@ -11,16 +11,16 @@
     <p id="result">
         The user name
         <%
-            @SuppressWarnings("unchecked")
+            @SuppressWarnings("unchecked")//impedisce a Java di fare problemi col downcast alla riga 15, da object a set
             Set<Character> set = (Set<Character>) request.getAttribute("set");
             if (set == null || set.isEmpty()) {
-                out.print("is empty");
+                out.print("is empty");//out. significa che vado a scrivere nella response
             } else {
                 out.print("contains these letters:");
 
-                Iterator<Character> it = set.iterator();
+                Iterator<Character> it = set.iterator();//dammi un iteratore
                 while (it.hasNext()) {
-                    out.print(" " + it.next());
+                    out.print(" " + it.next());//it.next sposta in avanti l'iteratore
                 }
             }
         %>

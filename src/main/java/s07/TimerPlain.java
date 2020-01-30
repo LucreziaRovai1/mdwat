@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/s07/timerPlain")
+@WebServlet("/s07/timerPlain") //questo è quello che inserisce l'utente come request, quindi entra in gioco questa parte di codice
 public class TimerPlain extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -20,13 +20,13 @@ public class TimerPlain extends HttpServlet {
         response.setContentType("text/plain");
         response.setCharacterEncoding("utf-8");
         try (PrintWriter writer = response.getWriter()) {
-            writer.println(LocalTime.now());
+            writer.println(LocalTime.now());//sto scrivendo dentro alla response, è un try with resources
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        doGet(request, response);
+            throws ServletException, IOException { //errore 500, nel codice.
+        doGet(request, response);//delega alla get l'esecuzione
     }
 }

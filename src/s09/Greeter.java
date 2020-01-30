@@ -22,7 +22,7 @@ public class Greeter extends HttpServlet {
         HttpSession session = request.getSession();
         LocalTime start = (LocalTime) session.getAttribute("start");
 
-        Duration duration;
+        Duration duration;//classe che mi permette di stabilire la durata
         if (start == null) {
             duration = Duration.ZERO;
             session.setAttribute("start", LocalTime.now());
